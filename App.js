@@ -25,7 +25,6 @@ import NotificationsScreen from './src/screens/NotificationsScreen';
 import ChatListScreen from './src/screens/ChatListScreen';
 import ChatScreen from './src/screens/ChatScreen';
 import ShopScreen from './src/screens/ShopScreen';
-import Avatar3D from './src/screens/Avatar3D'; // <--- AQUI
 
 import DebugFab from './src/components/DebugFab';
 
@@ -71,7 +70,6 @@ function MainStack() {
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="EditProfile" component={EditProfileScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Avatar3D" component={Avatar3D} />
       <Stack.Screen name="Notifications" component={NotificationsScreen} />
       <Stack.Screen name="ChatList" component={ChatListScreen} />
       <Stack.Screen name="Chat" component={ChatScreen} />

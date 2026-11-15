@@ -73,6 +73,7 @@ export default function SettingsScreen({ navigation }) {
         </View>
 
         <SettingItem icon="person-outline" label="Meu Perfil" sub="Alterar nome, bio e exibição" color="#00ff9d" onPress={() => navigation.navigate('EditProfile')} />
+        <SettingItem icon="images-outline" label="Loja de PFP" sub="Escolher uma foto para o perfil" color="#b197fc" onPress={() => navigation.navigate('Loja')} />
         <Text style={styles.sectionTitle}>CONTA</Text>
         <SettingItem icon="log-out-outline" label="Sair do App" onPress={handleLogout} />
         <Text style={[styles.sectionTitle, {color:'#ff4444'}]}>ZONA DE RISCO</Text>
