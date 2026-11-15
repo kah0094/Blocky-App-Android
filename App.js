@@ -53,6 +53,33 @@ function MobileTabs() {
   );
 }
 
+function AuthStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false, ...TransitionPresets.DefaultTransition }}>
+      <Stack.Screen name="Auth" component={AuthScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function MainStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false, ...TransitionPresets.DefaultTransition }}>
+      <Stack.Screen name="Main" component={MobileTabs} />
+      <Stack.Screen name="PostDetail" component={PostDetailScreen} />
+      <Stack.Screen name="CreateSelection" component={CreateSelectionScreen} options={{ presentation: 'transparentModal' }} />
+      <Stack.Screen name="CreatePost" component={CreatePostScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="Avatar3D" component={Avatar3D} />
+      <Stack.Screen name="Notifications" component={NotificationsScreen} />
+      <Stack.Screen name="ChatList" component={ChatListScreen} />
+      <Stack.Screen name="Chat" component={ChatScreen} />
+      <Stack.Screen name="Loja" component={ShopScreen} />
+    </Stack.Navigator>
+  );
+}
+
 export default function App() {
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -71,24 +98,7 @@ export default function App() {
         <RealtimeProvider>
           <NavigationContainer>
             <StatusBar barStyle="light-content" backgroundColor="#000" />
-            <Stack.Navigator screenOptions={{ headerShown: false, ...TransitionPresets.DefaultTransition }}>
-              {!session ? ( <Stack.Screen name="Auth" component={AuthScreen} /> ) : (
-                <Stack.Group>
-                  <Stack.Screen name="Main" component={MobileTabs} />
-                  <Stack.Screen name="PostDetail" component={PostDetailScreen} />
-                  <Stack.Screen name="CreateSelection" component={CreateSelectionScreen} options={{ presentation: 'transparentModal' }} />
-                  <Stack.Screen name="CreatePost" component={CreatePostScreen} />
-                  <Stack.Screen name="Settings" component={SettingsScreen} />
-                  <Stack.Screen name="EditProfile" component={EditProfileScreen} />
-                  <Stack.Screen name="Profile" component={ProfileScreen} />
-                  <Stack.Screen name="Avatar3D" component={Avatar3D} /> {/* <--- NOVA ROTA */}
-                  <Stack.Screen name="Notifications" component={NotificationsScreen} />
-                  <Stack.Screen name="ChatList" component={ChatListScreen} />
-                  <Stack.Screen name="Chat" component={ChatScreen} />
-                  <Stack.Screen name="Loja" component={ShopScreen} />
-                </Stack.Group>
-              )}
-            </Stack.Navigator>
+            {session ? <MainStack /> : <AuthStack />}
             {session && <DebugFab />}
           </NavigationContainer>
         </RealtimeProvider>
