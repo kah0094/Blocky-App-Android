@@ -73,7 +73,7 @@ export default function App() {
             <StatusBar barStyle="light-content" backgroundColor="#000" />
             <Stack.Navigator screenOptions={{ headerShown: false, ...TransitionPresets.DefaultTransition }}>
               {!session ? ( <Stack.Screen name="Auth" component={AuthScreen} /> ) : (
-                <>
+                <Stack.Group>
                   <Stack.Screen name="Main" component={MobileTabs} />
                   <Stack.Screen name="PostDetail" component={PostDetailScreen} />
                   <Stack.Screen name="CreateSelection" component={CreateSelectionScreen} options={{ presentation: 'transparentModal' }} />
@@ -86,7 +86,7 @@ export default function App() {
                   <Stack.Screen name="ChatList" component={ChatListScreen} />
                   <Stack.Screen name="Chat" component={ChatScreen} />
                   <Stack.Screen name="Loja" component={ShopScreen} />
-                </>
+                </Stack.Group>
               )}
             </Stack.Navigator>
             {session && <DebugFab />}
